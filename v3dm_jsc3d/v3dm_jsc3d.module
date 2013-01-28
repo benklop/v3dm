@@ -47,7 +47,6 @@ function v3dm_jsc3d_field_formatter_view($entity_type, $entity, $field, $instanc
     );
     $js_settings['files'][$id] = file_create_url($item['uri']);
   }
-  break;
 
   $jsc3d = 'sites/all/libraries/jsc3d';
   drupal_add_js($jsc3d . '/jsc3d.js');
