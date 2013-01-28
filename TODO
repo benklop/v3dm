@@ -1,0 +1,12 @@
+v3dm
+---
+ - Parse files to extract metadata.
+
+
+v3dm_thingiview
+---
+ - Check library requirement.
+ - Libraries integration.
+ - Settings page to customize formatter.
+  - Configurable container size.
+
