@@ -1,0 +1,5 @@
+name = Thingiview.js viewer
+description = Provides Thingiview.js as a formatter to visualize 3D Models.
+core = 7.x
+dependencies[] = v3dm
+package = 3D

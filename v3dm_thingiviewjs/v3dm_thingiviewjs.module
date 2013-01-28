@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Implementation of hook_field_formatter_info().
+ */
+function v3dm_thingiviewjs_field_formatter_info() {
+  $info = array();
+  $info['thingiviewjs'] = array(
+    'label' => t('Thingiview.js'),
+    'field types' => array('3dmodel'),
+    'description' => t('Render 3D model with thingiview.js.'),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function v3dm_thingiviewjs_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $width = $height = '300px';
+
+  $thingiview = '/sites/all/libraries/thingiview.js';
+  $thingiview_js = $thingiview . '/javascripts';
+
+  $js_settings = array();
+  $js_settings['path'] = $thingiview_js;
+  $js_settings['files'] = array();
+
+  foreach ($items as $delta => $item) {
+    $id = $field['field_name'] . '-' . $delta;
+    $element[$delta] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'id' => $id,
+        'class' => array('thingiview'),
+        'style' => 'width:' . $width . ';height:' . $height,
+      ),
+    );
+    $js_settings['files'][$id] = file_create_url($item['uri']);
+  }
+
+  drupal_add_js($thingiview_js . '/Three.js');
+  drupal_add_js($thingiview_js . '/plane.js');
+  drupal_add_js($thingiview_js . '/thingiview.js');
+  drupal_add_js(drupal_get_path('module', 'v3dm_thingiviewjs') . '/v3dm_thingiviewjs.js');
+  drupal_add_js(array('v3dm_thingiviewjs' => $js_settings), 'setting');
+
+  return $element;
+}
