@@ -1,0 +1,5 @@
+name = JSC3D viewer
+description = Provides JSC3D as a formatter to visualize 3D Models.
+core = 7.x
+dependencies[] = v3dm
+package = 3D

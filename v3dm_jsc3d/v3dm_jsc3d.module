@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function v3dm_jsc3d_theme() {
+  $hooks = array();
+  $hooks['jsc3d'] = array(
+    'render element' => 'element',
+  );
+  return $hooks;
+}
+
+/**
+ * Implements of hook_field_formatter_info().
+ */
+function v3dm_jsc3d_field_formatter_info() {
+  $info = array();
+  $info['jsc3d'] = array(
+    'label' => t('JSC3D'),
+    'field types' => array('3dmodel'),
+    'description' => t('Render 3D model with JSC3D.'),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function v3dm_jsc3d_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $width = $height = '300px';
+
+  $js_settings = array();
+  $js_settings['files'] = array();
+
+  foreach ($items as $delta => $item) {
+    $id = $field['field_name'] . '-' . $delta;
+    $element[$delta] = array(
+      '#theme' => 'jsc3d',
+      '#attributes' => array(
+        'id' => $id,
+        'class' => array('jsc3d'),
+        'width' => $width,
+        'height' => $height,
+      ),
+    );
+    $js_settings['files'][$id] = file_create_url($item['uri']);
+  }
+  break;
+
+  $jsc3d = 'sites/all/libraries/jsc3d';
+  drupal_add_js($jsc3d . '/jsc3d.js');
+  drupal_add_js($jsc3d . '/jsc3d.console.js');
+  drupal_add_js(drupal_get_path('module', 'v3dm_jsc3d') . '/v3dm_jsc3d.js');
+  drupal_add_js(array('v3dm_jsc3d' => $js_settings), 'setting');
+
+  return $element;
+}
+
+/**
+ * Returns HTML canvas.
+ */
+function theme_jsc3d($variables) {
+  $element = $variables['element'];
+  return '<canvas' . drupal_attributes($element['#attributes']) . '>' . $element['#children'] . '</canvas>';
+}

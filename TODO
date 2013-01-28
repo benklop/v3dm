@@ -1,12 +1,17 @@
 v3dm
 ---
  - Parse files to extract metadata.
+ - Settings: Configurable container size.
 
 
-v3dm_thingiview
+v3dm_thingiviewjs
 ---
  - Check library requirement.
  - Libraries integration.
  - Settings page to customize formatter.
-  - Configurable container size.
 
+v3dm_jsc3d
+---
+ - Check library requirement.
+ - Libraries integration.
+ - Settings page to customize formatter.
