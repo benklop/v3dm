@@ -1,14 +1,14 @@
 v3dm
 ---
- - Parse files to extract metadata.
+ - Parse files to extract metadata. See thingiview's php files.
  - Settings: Configurable container size.
-
 
 v3dm_thingiviewjs
 ---
  - Check library requirement.
  - Libraries integration.
  - Settings page to customize formatter.
+ - Alert if thingiview php files are in place! (download.php!)
 
 v3dm_jsc3d
 ---
