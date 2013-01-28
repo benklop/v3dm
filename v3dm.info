@@ -1,0 +1,4 @@
+name = 3D models field
+description = Provides a field type to store 3D Models.
+core = 7.x
+dependencies[] = field
