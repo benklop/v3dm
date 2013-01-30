@@ -20,12 +20,11 @@ function v3dm_thingiviewjs_field_formatter_view($entity_type, $entity, $field, $
   $element = array();
   $width = $height = '300px';
 
-  $thingiview = '/sites/all/libraries/thingiview.js';
-  $thingiview_js = $thingiview . '/javascripts';
+  $path = v3dm_path_to_library('thingiview.js') . '/javascripts';
 
-  $js_settings = array();
-  $js_settings['path'] = $thingiview_js;
-  $js_settings['files'] = array();
+  $js = array();
+  $js['path'] = '/' . $path;
+  $js['files'] = array();
 
   foreach ($items as $delta => $item) {
     $id = $field['field_name'] . '-' . $delta;
@@ -37,14 +36,14 @@ function v3dm_thingiviewjs_field_formatter_view($entity_type, $entity, $field, $
         'style' => 'width:' . $width . ';height:' . $height,
       ),
     );
-    $js_settings['files'][$id] = file_create_url($item['uri']);
+    $js['files'][$id] = file_create_url($item['uri']);
   }
 
-  drupal_add_js($thingiview_js . '/Three.js');
-  drupal_add_js($thingiview_js . '/plane.js');
-  drupal_add_js($thingiview_js . '/thingiview.js');
+  drupal_add_js($path . '/Three.js');
+  drupal_add_js($path . '/plane.js');
+  drupal_add_js($path . '/thingiview.js');
   drupal_add_js(drupal_get_path('module', 'v3dm_thingiviewjs') . '/v3dm_thingiviewjs.js');
-  drupal_add_js(array('v3dm_thingiviewjs' => $js_settings), 'setting');
+  drupal_add_js(array('v3dm_thingiviewjs' => $js), 'setting');
 
   return $element;
 }

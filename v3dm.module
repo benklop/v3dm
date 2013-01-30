@@ -1,6 +1,24 @@
 <?php
 
 /**
+ * Obtain path to a library.
+ *
+ * Leverage libraries api if available.
+ */
+function v3dm_path_to_library($library) {
+  if (function_exists('libraries_get_path')) {
+    $path = libraries_get_path($library);
+  }
+  else {
+    $path = 'sites/all/libraries/' . $library;
+  }
+  if (is_dir($path)) {
+    return $path;
+  }
+  return FALSE;
+}
+
+/**
  * Implements hook_field_info().
  */
 function v3dm_field_info() {
