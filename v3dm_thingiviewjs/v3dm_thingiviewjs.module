@@ -12,11 +12,11 @@ function v3dm_thingiviewjs_field_formatter_info() {
     'settings' => array(
       'width' => V3DM_CONTAINER_WIDTH,
       'height' => V3DM_CONTAINER_HEIGHT,
-      'objectColor' => V3DM_OBJECT_COLOR,
+      'objectColor' => '#C0D8F0',
       'objectMaterial' => 'solid',
-      'backgroundColor' => V3DM_CONTAINER_BGCOLOR,
+      'backgroundColor' => '#AAAAAA',
       'showPlane' => 'yes',
-      'rotation' => V3DM_OBJECT_ROTATE,
+      'rotation' => 'yes',
       'cameraView' => 'top',
       'cameraZoom' => 5,
     ),
@@ -73,6 +73,7 @@ function v3dm_thingiviewjs_field_formatter_settings_form($field, $instance, $vie
     '#type' => 'radios',
     '#options' => $bool_options,
     '#title' => t('Automatically rotate the object around the z axis'),
+    '#description' => t("NOTE: there's a bug upstream in ThingiView and this option doesn't work. See <a href='@url'>@url</a>", array('@url' => 'https://github.com/tbuser/thingiview.js/issues/12')),
     '#default_value' => $settings['rotation'],
   );
   $element['cameraView'] = array(
