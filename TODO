@@ -2,14 +2,3 @@ v3dm
 ====
 
  * Parse files to extract metadata. See thingiview's php files.
- * Settings: Configurable container size.
-
-
-v3dm_thingiviewjs
-=================
- * Settings page to customize formatter.
-
-
-v3dm_jsc3d
-==========
- * Settings page to customize formatter.
