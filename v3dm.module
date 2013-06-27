@@ -179,3 +179,12 @@ function v3dm_field_widget_form(&$form, &$form_state, $field, $instance, $langco
 
   return $elements;
 }
+
+/**
+ * Implements hook_filefield_paths_field_type_info().
+ *
+ * Provides integration with filefield_paths.
+ */
+function v3dm_filefield_paths_field_type_info() {
+  return array('3dmodel');
+}
