@@ -78,9 +78,9 @@ Expected libraries directory: jsc3d
 Example instructions:
 
     cd sites/all/libraries
-    wget http://jsc3d.googlecode.com/files/jsc3d-full-0.9.8.zip
-    unzip jsc3d-full-0.9.8.zip -d jsc3d
-    rm jsc3d-full-0.9.8.zip
+    wget http://jsc3d.googlecode.com/files/jsc3d-full-1.6.5.zip
+    unzip jsc3d-full-1.6.5.zip -d jsc3d
+    rm jsc3d-full-1.6.5.zip
 
 This is a full package, you can safely remove demos, docs, etc.
 
