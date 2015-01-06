@@ -140,7 +140,7 @@ function v3dm_thingiviewjs_field_formatter_view($entity_type, $entity, $field, $
   }
 
   foreach ($items as $delta => $item) {
-    $id = $field['field_name'] . '-' . $delta;
+    $id = drupal_html_id($field['field_name'] . '-' . $delta);
     $element[$delta] = array(
       '#type' => 'container',
       '#attributes' => array(
