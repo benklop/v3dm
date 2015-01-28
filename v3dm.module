@@ -198,3 +198,9 @@ function v3dm_storage_core_bridge_field_types() {
   return array('3dmodel');
 }
 
+/**
+ * Implements hook_field_download().
+ */
+function v3dm_file_download($uri, $field_type = '3dmodel') {
+  return file_file_download($uri, $field_type);
+}
