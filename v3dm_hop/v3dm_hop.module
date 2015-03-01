@@ -97,7 +97,6 @@ function v3dm_hop_field_formatter_view($entity_type, $entity, $field, $instance,
   drupal_add_js($hop . '/trackball_sphere.js');
   drupal_add_js($hop . '/trackball_turntable.js');
   drupal_add_js($hop . '/trackball_pantilt.js');
-  drupal_add_js($hop . '/init.js');
   drupal_add_js(drupal_get_path('module', 'v3dm_hop') . '/v3dm_hop.js');
   drupal_add_js(array('v3dm_hop' => $js), 'setting');
 
