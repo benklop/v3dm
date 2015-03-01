@@ -1,0 +1,5 @@
+name = 3DHOP viewer
+description = Provides 3DHOP as a formatter to visualize 3D Models.
+core = 7.x
+dependencies[] = v3dm
+package = 3D
