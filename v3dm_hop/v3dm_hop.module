@@ -89,7 +89,7 @@ function v3dm_hop_field_formatter_view($entity_type, $entity, $field, $instance,
     $js['files'][$id] = file_create_url($item['uri']);
   }
 
-  $hop = v3dm_path_to_library('3dhop');
+  $hop = v3dm_path_to_library('3dhop') . '/js';
   drupal_add_js($hop . '/spidergl.js');
   drupal_add_js($hop . '/presenter.js');
   drupal_add_js($hop . '/nexus.js');
