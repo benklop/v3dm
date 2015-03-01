@@ -5,7 +5,7 @@ Drupal.behaviors.hop = {
     $('.hop').each(function() {
 
       var presenter = null;
-      var id = $('.hop').attr('id');
+      var id = $(this).attr('id');
       var file = settings.v3dm_hop.files[id];
       presenter = new Presenter(id);
 
